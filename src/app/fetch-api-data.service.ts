@@ -8,7 +8,7 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-const apiUrl = 'https://myflixapi.smartcoder.dev/v1';
+const apiUrl = 'https://myflixapi.smartcoder.dev/v1/';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +26,7 @@ export class FetchApiDataService {
   public userLogin(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http
-      .post(`${apiUrl}/login`, userDetails)
+      .post(`${apiUrl}users/login`, userDetails)
       .pipe(catchError(this.handleError));
   }
 
@@ -158,7 +158,8 @@ export class FetchApiDataService {
       console.error('Some error occurred:', error.error.message);
     } else {
       console.error(
-        `Error Status code ${error.status}, ` + `Error body is: ${error.error}`
+        `Error Status code ${error.status}, ` +
+          `Error body is: ${error.error.message}`
       );
     }
     return throwError('Something bad happened; please try again later.');
