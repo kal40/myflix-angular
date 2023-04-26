@@ -1,0 +1,8 @@
+<mat-toolbar>
+  <img src="../../assets/MyFlix-logo.png" alt="MyFlix Logo">
+  <button mat-button (click)="onHomeClick()">Home</button>
+  <button mat-button (click)="onLogoutClick()">Logout</button>
+  <span class="spacer"></span>
+  <button mat-button (click)="onProfileClick()">{{username}}</button>
+  <mat-icon>account_circle</mat-icon>
+</mat-toolbar>

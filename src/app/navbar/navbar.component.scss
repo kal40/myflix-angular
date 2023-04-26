@@ -1,0 +1,20 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  color: #d9cb9e;
+  padding: 0 1.5rem;
+}
+
+mat-toolbar img {
+  width: 5rem;
+  height: 5rem;
+  margin-right: 1rem;
+}
+
+mat-toolbar button {
+  font-size: large;
+  font-weight: 600;
+  letter-spacing: normal;
+}

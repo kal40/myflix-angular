@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-user-registration-form',
@@ -19,18 +20,23 @@ export class UserRegistrationFormComponent {
 
   ngOnInit(): void {}
 
-  registerUser(): void {
+  storeDate(event: MatDatepickerInputEvent<Date>) {
+    this.userData.birthday = `${event.value}`;
+  }
+
+  onSubmit(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe(
-      (result) => {
-        this.dialogRef.close();
-        this.snackBar.open(result.message, 'OK', {
-          duration: 2000,
-        });
-        console.log(result);
+      (response) => {
+        if (response.success === true) {
+          this.dialogRef.close();
+          this.snackBar.open(response.message, 'OK', {
+            duration: 8000,
+          });
+        }
       },
-      (result) => {
-        this.snackBar.open(result, 'OK', {
-          duration: 2000,
+      (response) => {
+        this.snackBar.open(response, 'OK', {
+          duration: 8000,
         });
       }
     );

@@ -1,0 +1,14 @@
+.logincover::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  height: 100%;
+  opacity: 0.65;
+  background-image: url("../../assets/cover.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+}

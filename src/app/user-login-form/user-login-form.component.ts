@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { UserRegistrationFormComponent } from '../user-registration-form/user-registration-form.component';
 
 @Component({
   selector: 'app-user-login-form',
@@ -16,26 +18,32 @@ export class UserLoginFormComponent {
 
   constructor(
     public fetchApiData: FetchApiDataService,
-    public dialogRef: MatDialogRef<UserLoginFormComponent>,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    public router: Router,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {}
 
-  loginUser(): void {
+  openUserRegistrationDialog(): void {
+    this.dialog.open(UserRegistrationFormComponent, {});
+  }
+
+  onSubmit(): void {
     this.fetchApiData.userLogin(this.userData).subscribe(
-      (result) => {
-        this.dialogRef.close();
-        this.snackBar.open(result.message, 'OK', {
-          duration: 2000,
-        });
-        console.log(result);
-        localStorage.setItem('user', this.userData.username);
-        localStorage.setItem('token', result.data.token);
+      (response) => {
+        if (response.success === true) {
+          this.snackBar.open(response.message, 'OK', {
+            duration: 8000,
+          });
+          localStorage.setItem('user', this.userData.username);
+          localStorage.setItem('token', response.data.token);
+          this.router.navigate(['movies']);
+        }
       },
-      (result) => {
-        this.snackBar.open(result, 'OK', {
-          duration: 2000,
+      (response) => {
+        this.snackBar.open(response, 'OK', {
+          duration: 8000,
         });
       }
     );

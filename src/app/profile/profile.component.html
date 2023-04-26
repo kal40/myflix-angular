@@ -1,8 +1,8 @@
-<div class="main-wrapper">
+<app-navbar></app-navbar>
+<div class="main-wrapper mat-app-background">
   <mat-card class="mat-card">
-    <img src="../../assets/MyFlix-1.png" alt="MyFlix Logo">
+    <mat-icon>account_circle</mat-icon>
     <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
-
       <mat-card-content>
         <div class="row">
           <div class="col">
@@ -67,7 +67,10 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button type="submit" [disabled]="!registerForm.form.valid" color="primary">
-          Sign Up
+          Update
+        </button>
+        <button mat-raised-button type="button" (click)="onDelete()" color="primary">
+          Delete
         </button>
       </mat-card-actions>
     </form>
