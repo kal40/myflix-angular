@@ -1,27 +1,29 @@
 <app-navbar></app-navbar>
 <div class="mat-app-background container">
-  <mat-card *ngFor="let movie of movies;">
-    <mat-card-header>
-      <mat-card-title>{{movie.title}}</mat-card-title>
-    </mat-card-header>
-    <img src={{movie.imagePath}} alt={{movie.title}} />
-    <mat-card-actions>
-      <button mat-fab extended color="primary" (click)="openGenre(movie)">
-        <mat-icon>theater_comedy</mat-icon>
-        Genre
-      </button>
-      <button mat-fab extended color="primary" (click)="openDirector(movie)">
-        <mat-icon>video_camera_front</mat-icon>
-        Director
-      </button>
-      <button mat-fab extended color="primary" (click)="openMovieDetails(movie)">
-        <mat-icon>article</mat-icon>
-        Synopsis
-      </button>
-      <button mat-fab extended color="primary" (click)="toggleFavorite(movie._id)">
-        <mat-icon>{{ isMovieFavorite(movie._id) ? "favorite" : "favorite_border" }}</mat-icon>
-        Favorite
-      </button>
-    </mat-card-actions>
-  </mat-card>
+  <div class="flex-container">
+    <mat-card *ngFor="let movie of movies;">
+      <mat-card-header>
+        <mat-card-title>{{movie.title}}</mat-card-title>
+      </mat-card-header>
+      <img src={{movie.imagePath}} alt={{movie.title}} />
+      <mat-card-actions>
+        <button mat-fab extended color="primary" (click)="openGenre(movie)">
+          <mat-icon>theater_comedy</mat-icon>
+          Genre
+        </button>
+        <button mat-fab extended color="primary" (click)="openDirector(movie)">
+          <mat-icon>video_camera_front</mat-icon>
+          Director
+        </button>
+        <button mat-fab extended color="primary" (click)="openMovieDetails(movie)">
+          <mat-icon>article</mat-icon>
+          Synopsis
+        </button>
+        <button mat-fab extended color="primary" (click)="toggleFavorite(movie._id)">
+          <mat-icon>{{ isMovieFavorite(movie._id) ? "favorite" : "favorite_border" }}</mat-icon>
+          Favorite
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>
