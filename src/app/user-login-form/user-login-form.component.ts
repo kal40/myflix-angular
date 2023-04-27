@@ -29,6 +29,11 @@ export class UserLoginFormComponent {
     this.dialog.open(UserRegistrationFormComponent, {});
   }
 
+  /**
+   * send the form inputs to the backend, navigate to /movies
+   * @function onSubmit
+   */
+
   onSubmit(): void {
     this.fetchApiData.userLogin(this.userData).subscribe(
       (response) => {

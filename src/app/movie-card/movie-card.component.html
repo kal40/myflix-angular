@@ -7,15 +7,15 @@
       </mat-card-header>
       <img src={{movie.imagePath}} alt={{movie.title}} />
       <mat-card-actions>
-        <button mat-fab extended color="primary" (click)="openGenre(movie)">
+        <button mat-fab extended color="primary" (click)="openGenreDialog(movie)">
           <mat-icon>theater_comedy</mat-icon>
           Genre
         </button>
-        <button mat-fab extended color="primary" (click)="openDirector(movie)">
+        <button mat-fab extended color="primary" (click)="openDirectorDialog(movie)">
           <mat-icon>video_camera_front</mat-icon>
           Director
         </button>
-        <button mat-fab extended color="primary" (click)="openMovieDetails(movie)">
+        <button mat-fab extended color="primary" (click)="openSummaryDialog(movie)">
           <mat-icon>article</mat-icon>
           Synopsis
         </button>

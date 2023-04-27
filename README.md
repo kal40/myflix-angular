@@ -1,27 +1,47 @@
-# MyflixAngular
+# Myflix Angular Client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+## Description
 
-## Development server
+Angular client for an application called myFlix based on
+its existing server-side code (REST API and database). A single-page, responsive app with routing, rich interactions, several interface views, and a polished user experience.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This site was built using [GitHub Pages](https://pages.github.com/).
 
-## Code scaffolding
+[LIVE DEMO](https://myflixang.smartcoder.dev/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Application features
 
-## Build
+- Display a welcome view where users will be able to either log in or register an account.
+- Once authenticated, the user can view all movies.
+- On each movie card 4 buttons are available with the next functions:
+  1. A genre button that when clicked a modal opens with the details about the genre of that particular movie.
+  2. A director button that when clicked a modal opens with the details about the director of that particular movie.
+  3. A Summary button that when clicked a modal opens with the details about the particular movie.
+  4. A Favorite button that when clicked the particular movie will be added the user's favorite movies
+- A profile view where the user details can be edited or the user can be deleted from the database.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Tech stack
 
-## Running unit tests
+- Angular
+- Angular Material
+- TypeScript
+- HTML/SCSS
+- TypeDoc
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Getting started
 
-## Running end-to-end tests
+### Prerequisites
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Install `@angular/cli`.
 
-## Further help
+### Installation
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Clone the repository:
+
+```shell
+git clone https://github.com/kal40/myflix-angular.git
+cd myflix-angular
+ng serve
+```
+
+Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

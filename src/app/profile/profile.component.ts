@@ -38,6 +38,13 @@ export class ProfileComponent {
     });
   }
 
+  /**
+   * Update the user info using input value (editUser)
+   * If input is empty, assign current user value (user), otherwise, assign updated input value (editUser)
+   * set localStorage username to updated username, inform user, then reload
+   * @function onSubmit
+   */
+
   onSubmit(): void {
     this.fetchApiData.editUser(this.userData).subscribe(
       (response) => {
@@ -55,6 +62,12 @@ export class ProfileComponent {
       }
     );
   }
+
+  /**
+   * Get a confirmation from the user, if given, navigate to the welcome page
+   * Inform the user of the changes and delete user data (deleteUser)
+   * @function onDelete
+   */
 
   onDelete(): void {
     this.fetchApiData.deleteUser().subscribe(

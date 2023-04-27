@@ -24,6 +24,11 @@ export class UserRegistrationFormComponent {
     this.userData.birthday = `${event.value}`;
   }
 
+  /**
+   * send the form inputs to the backend
+   * @function onSubmit
+   */
+
   onSubmit(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe(
       (response) => {

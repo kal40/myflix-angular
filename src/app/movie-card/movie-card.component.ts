@@ -31,12 +31,24 @@ export class MovieCardComponent {
     }
   }
 
+  /**
+   * fetch movies from FetchApiDataService service getAllMovies()
+   * @returns an array of all movies
+   * @function getMovies
+   */
+
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((response: any) => {
       this.movies = response.data;
       return this.movies;
     });
   }
+
+  /**
+   * fetch favorite movies from FetchApiDataService service getUser()
+   * @returns an empty array or an array of movies favorited by the user
+   * @function getFavorites
+   */
 
   getFavoriteMovies(): void {
     this.fetchApiData.getFavoriteMovies().subscribe((response: any) => {
@@ -77,7 +89,14 @@ export class MovieCardComponent {
     }
   }
 
-  openGenre(movie: any): void {
+  /**
+   * opens the MovieGenreComponent dialog
+   * @param name
+   * @param description
+   * @function openGenreDialog
+   */
+
+  openGenreDialog(movie: any): void {
     const { name, description } = movie.genre;
     this.dialog.open(GenreComponent, {
       data: { name, description },
@@ -86,7 +105,15 @@ export class MovieCardComponent {
     });
   }
 
-  openDirector(movie: any): void {
+  /**
+   * opens the MovieDirectorComponent dialog
+   * @param name
+   * @param bio
+   * @param birth
+   * @function openDirectorDialog
+   */
+
+  openDirectorDialog(movie: any): void {
     const { name, birth, bio } = movie.director;
     this.dialog.open(DirectorComponent, {
       data: { name, birth, bio },
@@ -95,7 +122,14 @@ export class MovieCardComponent {
     });
   }
 
-  openMovieDetails(movie: any): void {
+  /**
+   * opens the MovieSummaryComponent dialog
+   * @param title
+   * @param description
+   * @function openSummaryDialog
+   */
+
+  openSummaryDialog(movie: any): void {
     const { title, description } = movie;
     this.dialog.open(MovieDetailsComponent, {
       data: { title, description },
